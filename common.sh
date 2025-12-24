@@ -43,3 +43,16 @@ MAVEN() {
 
   SYSTEMD
 }
+
+GO() {
+  dnf install golang -y
+
+  APP_PREREQ
+
+  cd /app
+  go mod init ${component}
+  go get
+  go build
+
+  SYSTEMD
+}
